@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap");
+@page {
+  size: A5;
+  background-image: url("right.svg");
+  margin-top: 21mm;
+  margin-right: 21mm;
+  margin-bottom: calc(210mm - 21mm - 3.3mm * 50 - 6.6mm);
+  margin-left: 20.6mm /* calc(148mm - 21mm - 5.6mm * 19) */;
+}
+:root {
+  writing-mode: vertical-rl;
+  column-count: 2;
+  column-gap: 6.6mm;
+  column-fill: auto;
+}
+p {
+  margin: 0;
+  font-family: "Noto Serif JP";
+  font-size: 3.3mm;
+  line-height: 5.6mm;
+  text-indent: 1em;
+  text-align: justify;
+  widows: 1;
+  orphans: 1;
+}
