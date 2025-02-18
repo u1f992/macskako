@@ -10,7 +10,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@u1f992/generate-layout-grid": "../",
+    "@u1f992/generate-layout-grid-svg": "../",
     "@vivliostyle/cli": "^8.18.0"
   },
   "type": "module"

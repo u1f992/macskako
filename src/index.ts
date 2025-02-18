@@ -52,7 +52,7 @@ export type Config = {
   letterSpacing: number;
   lineHeight: number;
   letterCount: number;
-  rowCount: number;
+  lineCount: number;
   columnCount: number;
   columnGap: number;
   startingPoint:
@@ -90,7 +90,7 @@ export function generateLayoutGridSVG(
     letterSpacing,
     lineHeight,
     letterCount,
-    rowCount,
+    lineCount,
     columnCount,
     columnGap,
     startingPoint,
@@ -102,46 +102,6 @@ export function generateLayoutGridSVG(
 
   const rects: Rect[] = [];
 
-  /**
-   * `writingMode === "horizontal" && direction === "ltr"`
-   * ```
-   *   ---->
-   * | いろはにほへと
-   * v ちりぬるを
-   * ```
-   *
-   * `writingMode === "horizontal" && direction === "rtl"`
-   * ```
-   *            <----
-   *   とへほにはろい |
-   *   　　をるぬりち v
-   * ```
-   *
-   * `writingMode === "vertical" && direction === "ltr"`
-   * ```
-   *   -->
-   * | いち
-   * v ろり
-   *   はぬ
-   *   にる
-   *   ほを
-   *   へ
-   *   と
-   * ```
-   *
-   * `writingMode === "vertical" && direction === "rtl"`
-   * ```
-   *    <--
-   *   ちい |
-   *   りろ v
-   *   ぬは
-   *   るに
-   *   をほ
-   *   　へ
-   *   　と
-   * ```
-   */
-
   const dLetter =
     (fontSize + letterSpacing) *
     (writingMode === "horizontal" && direction === "rtl" ? -1 : 1);
@@ -150,8 +110,8 @@ export function generateLayoutGridSVG(
 
   const lettersLength = Math.abs(dLetter) * letterCount - letterSpacing;
   const linesLength = trimHalfLeading
-    ? fontSize + Math.abs(dLine) * (rowCount - 1)
-    : Math.abs(dLine) * rowCount;
+    ? fontSize + Math.abs(dLine) * (lineCount - 1)
+    : Math.abs(dLine) * lineCount;
 
   const columnWidth =
     writingMode === "horizontal" ? lettersLength : linesLength;
@@ -193,12 +153,12 @@ export function generateLayoutGridSVG(
   const dy = writingMode === "horizontal" ? dLine : dLetter;
   for (
     let x = 0;
-    x < (writingMode === "horizontal" ? letterCount : rowCount);
+    x < (writingMode === "horizontal" ? letterCount : lineCount);
     x++
   )
     for (
       let y = 0;
-      y < (writingMode === "horizontal" ? rowCount : letterCount);
+      y < (writingMode === "horizontal" ? lineCount : letterCount);
       y++
     )
       rects.push({

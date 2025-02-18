@@ -1,0 +1,16 @@
+{
+  "config": {
+    "page": { "width": 148, "height": 210 },
+    "writingMode": "vertical",
+    "direction": "rtl",
+    "fontSize": 3.3,
+    "letterSpacing": 0,
+    "lineHeight": 5.6,
+    "letterCount": 25,
+    "lineCount": 19,
+    "columnCount": 2,
+    "columnGap": 6.6,
+    "startingPoint": { "top": 21, "foreEdge": 18.2 }
+  },
+  "options": { "unit": "mm", "strokeWidth": 0.1 }
+}
