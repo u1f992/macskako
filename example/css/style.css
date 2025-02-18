@@ -1,23 +1,60 @@
 @import url("https://fonts.googleapis.com/css2?family=Noto+Serif+JP:wght@200..900&display=swap");
-@page {
-  size: A5;
-  background-image: url("right.svg");
-  margin-top: 21mm;
-  margin-right: 21mm;
-  margin-bottom: calc(210mm - 21mm - 3.3mm * 50 - 6.6mm);
-  margin-left: 20.6mm /* calc(148mm - 21mm - 5.6mm * 19) */;
-}
+
 :root {
+  --page-width: 148mm;
+  --page-height: 210mm;
+
+  --font-size: 3.3mm;
+  --line-height: 5.6mm;
+  --letter-count: 25;
+  --line-count: 19;
+  --column-count: 2;
+  --column-gap: 6.6mm;
+
+  --page-margin-top: 21mm;
+  --page-margin-bottom: calc(
+    var(--page-height) - var(--page-margin-top) - var(--font-size) *
+      var(--letter-count) * var(--column-count) - var(--column-gap)
+  );
+  --page-margin-fore-edge: 19.85mm;
+  --page-margin-gutter: calc(
+    var(--page-width) - var(--page-margin-fore-edge) - var(--line-height) *
+      var(--line-count)
+  );
+
   writing-mode: vertical-rl;
-  column-count: 2;
-  column-gap: 6.6mm;
+  column-count: var(--column-count);
+  column-gap: var(--column-gap);
   column-fill: auto;
 }
+
+@page {
+  size: var(--page-width) var(--page-height);
+  margin-top: var(--page-margin-top);
+  margin-bottom: var(--page-margin-bottom);
+}
+
+@page :right {
+  background-image: url("right.svg");
+  margin-right: var(--page-margin-fore-edge);
+  margin-left: var(--page-margin-gutter);
+}
+
+@page :left {
+  background-image: url("left.svg");
+  margin-left: var(--page-margin-fore-edge);
+  margin-right: var(--page-margin-gutter);
+}
+
+body {
+  background-color: color(srgb 0.5 0.5 0.5 / 0.3);
+}
+
 p {
   margin: 0;
   font-family: "Noto Serif JP";
-  font-size: 3.3mm;
-  line-height: 5.6mm;
+  font-size: var(--font-size);
+  line-height: var(--line-height);
   text-indent: 1em;
   text-align: justify;
   widows: 1;

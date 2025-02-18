@@ -1,6 +1,4 @@
----
-lang: ja
----
+<div style="break-after: page;"></div>
 
 そのころわたくしは、モリーオ市の博物局に勤めて居りました。
 
