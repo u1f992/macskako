@@ -1,5 +1,7 @@
 # generate-layout-grid-svg
 
+[_Layout grid_](https://helpx.adobe.com/indesign/using/layout-grids.html) is a guide commonly used in Japanese typography with Adobe InDesign. This function/CLI application generates SVG images that closely resemble layout grids. It is primarily intended for use in CSS typesetting, where it can be inserted as a background image to help visualize page layouts.
+
 ```
 $ generate-layout-grid-svg --help
 Usage: generate-layout-grid-svg [options]

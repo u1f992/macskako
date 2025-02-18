@@ -12,9 +12,10 @@
     "test": "npm run build && node --test"
   },
   "keywords": [],
-  "author": "",
+  "homepage": "https://github.com/u1f992/generate-layout-grid-svg",
+  "author": "Koutaro Mukai",
   "license": "ISC",
-  "description": "",
+  "description": "Generates SVG images resembling layout grids",
   "type": "module",
   "devDependencies": {
     "@types/node": "^22.13.4",
