@@ -107,7 +107,7 @@ Options:
   -h, --help                                  display help for command
   -l, --output-left <file>                    required: output path for left page
   -r, --output-right <file>                   required: output path for right page
-  -c, --config <file>                         default: "macskako.config.jsonc" from the nearest ancestor
+  -c, --config <file>                         default: "macskako.config.jsonc" from the closest ancestor
   --page-width <number>                       override \`config.page.width\`
   --page-height <number>                      override \`config.page.height\`
   --writing-mode "horizontal" | "vertical"    override \`config.writingMode\`
