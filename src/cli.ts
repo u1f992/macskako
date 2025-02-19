@@ -4,6 +4,8 @@ import fs from "node:fs";
 import path from "node:path";
 import { parseArgs } from "node:util";
 
+import JSON5 from "json5";
+
 import { VERSION } from "./version.js";
 import {
   Config,
@@ -59,7 +61,7 @@ const {
     config: {
       type: "string",
       short: "c",
-      default: findClosest("layout-grid.config.json") ?? undefined,
+      default: findClosest("macskako.config.jsonc") ?? undefined,
     },
     /*****/
     "page-width": { type: "string" },
@@ -98,34 +100,34 @@ if (version) {
 }
 if (help) {
   console.log(
-    `Usage: generate-layout-grid-svg [options]
+    `Usage: macskako [options]
 
 Options:
   -v, --version                               output the version number
   -h, --help                                  display help for command
   -l, --output-left <file>                    required: output path for left page
   -r, --output-right <file>                   required: output path for right page
-  -c, --config <file>                         default: "layout-grid.config.json" from the nearest ancestor or \`{}\`
-  --page-width <number>                       override \`config.config.page.width\`
-  --page-height <number>                      override \`config.config.page.height\`
-  --writing-mode "horizontal" | "vertical"    override \`config.config.writingMode\`
-  --direction "ltr" | "rtl"                   override \`config.config.direction\`
-  --font-size <number>                        override \`config.config.fontSize\`
-  --letter-spacing <number>                   override \`config.config.letterSpacing\`
-  --line-height <number>                      override \`config.config.lineHeight\`
-  --letter-count <number>                     override \`config.config.letterCount\`
-  --line-count <number>                       override \`config.config.lineCount\`
-  --column-count <number>                     override \`config.config.columnCount\`
-  --column-gap <number>                       override \`config.config.columnGap\`
-  --starting-point-top <number>               override \`config.config.startingPoint.top\`
-  --starting-point-bottom <number>            override \`config.config.startingPoint.bottom\`
-  --starting-point-fore-edge <number>         override \`config.config.startingPoint.foreEdge\`
-  --starting-point-gutter <number>            override \`config.config.startingPoint.gutter\`
-  --unit "" | "px" | "mm"                     default: "${defaultOptions.unit}"; override \`config.options.unit\`
-  --color <string>                            default: "${defaultOptions.color}"; override \`config.options.color\`
-  --opacity <number>                          default: ${defaultOptions.opacity}; override \`config.options.opacity\`
-  --stroke-width <number>                     default: ${defaultOptions.strokeWidth}; override \`config.options.strokeWidth\`
-  --trim-half-leading                         default: ${defaultOptions.trimHalfLeading}; override \`config.options.trimHalfLeading\``,
+  -c, --config <file>                         default: "macskako.config.jsonc" from the nearest ancestor
+  --page-width <number>                       override \`config.page.width\`
+  --page-height <number>                      override \`config.page.height\`
+  --writing-mode "horizontal" | "vertical"    override \`config.writingMode\`
+  --direction "ltr" | "rtl"                   override \`config.direction\`
+  --font-size <number>                        override \`config.fontSize\`
+  --letter-spacing <number>                   override \`config.letterSpacing\`
+  --line-height <number>                      override \`config.lineHeight\`
+  --letter-count <number>                     override \`config.letterCount\`
+  --line-count <number>                       override \`config.lineCount\`
+  --column-count <number>                     override \`config.columnCount\`
+  --column-gap <number>                       override \`config.columnGap\`
+  --starting-point-top <number>               override \`config.startingPoint.top\`
+  --starting-point-bottom <number>            override \`config.startingPoint.bottom\`
+  --starting-point-fore-edge <number>         override \`config.startingPoint.foreEdge\`
+  --starting-point-gutter <number>            override \`config.startingPoint.gutter\`
+  --unit "" | "px" | "mm"                     default: "${defaultOptions.unit}"; override \`options.unit\`
+  --color <string>                            default: "${defaultOptions.color}"; override \`options.color\`
+  --opacity <number>                          default: ${defaultOptions.opacity}; override \`options.opacity\`
+  --stroke-width <number>                     default: ${defaultOptions.strokeWidth}; override \`options.strokeWidth\`
+  --trim-half-leading                         default: ${defaultOptions.trimHalfLeading}; override \`options.trimHalfLeading\``,
   );
   process.exit(0);
 }
@@ -146,7 +148,7 @@ const {
         _.config ??= {};
         _.options ??= {};
         return _;
-      })(JSON.parse(fs.readFileSync(configOptsFile, { encoding: "utf-8" })))
+      })(JSON5.parse(fs.readFileSync(configOptsFile, { encoding: "utf-8" })))
     : { config: {}, options: {} };
 
 config.page ??= {};

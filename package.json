@@ -1,9 +1,9 @@
 {
-  "name": "@u1f992/generate-layout-grid-svg",
+  "name": "@u1f992/macskako",
   "version": "0.1.0",
   "main": "./dist/index.js",
   "bin": {
-    "generate-layout-grid-svg": "dist/cli.js"
+    "macskako": "dist/cli.js"
   },
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",
@@ -12,14 +12,17 @@
     "test": "npm run build && node --test"
   },
   "keywords": [],
-  "homepage": "https://github.com/u1f992/generate-layout-grid-svg",
+  "homepage": "https://github.com/u1f992/macskako",
   "author": "Koutaro Mukai",
   "license": "ISC",
-  "description": "Generates SVG images resembling layout grids",
+  "description": "Generates SVG images resembling layout grids used in Japanese typesetting.",
   "type": "module",
   "devDependencies": {
     "@types/node": "^22.13.4",
     "prettier": "^3.5.1",
     "typescript": "^5.7.3"
+  },
+  "dependencies": {
+    "json5": "^2.2.3"
   }
 }

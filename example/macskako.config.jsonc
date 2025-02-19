@@ -1,6 +1,6 @@
 {
   "config": {
-    "page": { "width": 148, "height": 210 },
+    "page": { "width": 148, "height": 210 }, // A5
     "writingMode": "vertical",
     "direction": "rtl",
     "fontSize": 3.3,

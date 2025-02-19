@@ -11,7 +11,7 @@
   "license": "ISC",
   "description": "",
   "devDependencies": {
-    "@u1f992/generate-layout-grid-svg": "../",
+    "@u1f992/macskako": "../",
     "@vivliostyle/cli": "^8.18.0"
   },
   "type": "module"

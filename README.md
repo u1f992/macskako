@@ -1,37 +1,37 @@
-# generate-layout-grid-svg
+# Macskako
 
-[_Layout grid_](https://helpx.adobe.com/indesign/using/layout-grids.html) is a guide commonly used in Japanese typography with Adobe InDesign. This function/CLI application generates SVG images that closely resemble layout grids. It is primarily intended for use in CSS typesetting, where it can be inserted as a background image to help visualize page layouts.
+[_Layout grid_](https://helpx.adobe.com/indesign/using/layout-grids.html) is a guide commonly used in Japanese typesetting with Adobe InDesign. This function/CLI application generates SVG images that closely resemble layout grids. It is primarily intended for use in CSS typesetting, where it can be inserted as a background image to help visualize page layouts.
 
 ```
-$ generate-layout-grid-svg --help
-Usage: generate-layout-grid-svg [options]
+$ macskako --help
+Usage: macskako [options]
 
 Options:
   -v, --version                               output the version number
   -h, --help                                  display help for command
   -l, --output-left <file>                    required: output path for left page
   -r, --output-right <file>                   required: output path for right page
-  -c, --config <file>                         default: "layout-grid.config.json" from the nearest ancestor or `{}`
-  --page-width <number>                       override `config.config.page.width`
-  --page-height <number>                      override `config.config.page.height`
-  --writing-mode "horizontal" | "vertical"    override `config.config.writingMode`
-  --direction "ltr" | "rtl"                   override `config.config.direction`
-  --font-size <number>                        override `config.config.fontSize`
-  --letter-spacing <number>                   override `config.config.letterSpacing`
-  --line-height <number>                      override `config.config.lineHeight`
-  --letter-count <number>                     override `config.config.letterCount`
-  --line-count <number>                       override `config.config.lineCount`
-  --column-count <number>                     override `config.config.columnCount`
-  --column-gap <number>                       override `config.config.columnGap`
-  --starting-point-top <number>               override `config.config.startingPoint.top`
-  --starting-point-bottom <number>            override `config.config.startingPoint.bottom`
-  --starting-point-fore-edge <number>         override `config.config.startingPoint.foreEdge`
-  --starting-point-gutter <number>            override `config.config.startingPoint.gutter`
-  --unit "" | "px" | "mm"                     default: ""; override `config.options.unit`
-  --color <string>                            default: "#a6e2a6"; override `config.options.color`
-  --opacity <number>                          default: 1; override `config.options.opacity`
-  --stroke-width <number>                     default: 1; override `config.options.strokeWidth`
-  --trim-half-leading                         default: false; override `config.options.trimHalfLeading`
+  -c, --config <file>                         default: "macskako.config.jsonc" from the nearest ancestor
+  --page-width <number>                       override `config.page.width`
+  --page-height <number>                      override `config.page.height`
+  --writing-mode "horizontal" | "vertical"    override `config.writingMode`
+  --direction "ltr" | "rtl"                   override `config.direction`
+  --font-size <number>                        override `config.fontSize`
+  --letter-spacing <number>                   override `config.letterSpacing`
+  --line-height <number>                      override `config.lineHeight`
+  --letter-count <number>                     override `config.letterCount`
+  --line-count <number>                       override `config.lineCount`
+  --column-count <number>                     override `config.columnCount`
+  --column-gap <number>                       override `config.columnGap`
+  --starting-point-top <number>               override `config.startingPoint.top`
+  --starting-point-bottom <number>            override `config.startingPoint.bottom`
+  --starting-point-fore-edge <number>         override `config.startingPoint.foreEdge`
+  --starting-point-gutter <number>            override `config.startingPoint.gutter`
+  --unit "" | "px" | "mm"                     default: ""; override `options.unit`
+  --color <string>                            default: "#a6e2a6"; override `options.color`
+  --opacity <number>                          default: 1; override `options.opacity`
+  --stroke-width <number>                     default: 1; override `options.strokeWidth`
+  --trim-half-leading                         default: false; override `options.trimHalfLeading`
 ```
 
 <!-- prettier-ignore-start -->
