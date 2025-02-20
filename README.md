@@ -2,6 +2,8 @@
 
 [_Layout grid_](https://helpx.adobe.com/indesign/using/layout-grids.html) is a guide commonly used in Japanese typesetting with Adobe InDesign. This function/CLI application generates SVG images that closely resemble layout grids. It is primarily intended for use in CSS typesetting, where it can be inserted as a background image to help visualize page layouts.
 
+## Config and Options
+
 ```
 $ macskako --help
 Usage: macskako [options]
@@ -112,3 +114,7 @@ v ろり
 </dl>
 
 <!-- prettier-ignore-end -->
+
+## License
+
+This project is licensed under [GPL-3.0](LICENSE), except that everything in the `example` directory is released under CC0. Additionally, the typesetting sample includes excerpts from 宮沢賢治『ポラーノの広場』 (which is effectively in the public domain in Japan due to the expiration of its copyright protection).

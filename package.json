@@ -14,7 +14,7 @@
   "keywords": [],
   "homepage": "https://github.com/u1f992/macskako",
   "author": "Koutaro Mukai",
-  "license": "ISC",
+  "license": "GPL-3.0",
   "description": "Generates SVG images resembling layout grids used in Japanese typesetting.",
   "type": "module",
   "devDependencies": {
