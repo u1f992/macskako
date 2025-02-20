@@ -1,9 +1,9 @@
 {
   "name": "@u1f992/macskako",
-  "version": "0.1.0",
+  "version": "0.0.0",
   "main": "./dist/index.js",
   "bin": {
-    "macskako": "dist/cli.js"
+    "macskako": "./dist/cli.js"
   },
   "scripts": {
     "format": "prettier --write \"src/**/*.ts\"",

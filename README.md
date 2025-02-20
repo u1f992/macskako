@@ -1,6 +1,12 @@
 # Macskako
 
+```
+$ npm install --global @u1f992/macskako
+```
+
 [_Layout grid_](https://helpx.adobe.com/indesign/using/layout-grids.html) is a guide commonly used in Japanese typesetting with Adobe InDesign. This function/CLI application generates SVG images that closely resemble layout grids. It is primarily intended for use in CSS typesetting, where it can be inserted as a background image to help visualize page layouts.
+
+![](./example/css/left.svg)
 
 ## Usage
 
