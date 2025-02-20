@@ -2,7 +2,7 @@
 
 [_Layout grid_](https://helpx.adobe.com/indesign/using/layout-grids.html) is a guide commonly used in Japanese typesetting with Adobe InDesign. This function/CLI application generates SVG images that closely resemble layout grids. It is primarily intended for use in CSS typesetting, where it can be inserted as a background image to help visualize page layouts.
 
-## Config and Options
+## Usage
 
 ```
 $ macskako --help
@@ -40,53 +40,53 @@ Options:
 <!-- EAWの違いでGitHub上の表示とVS Codeのプレビューの両方が崩れないように、GitHubと同じフォント（`getComputedStyle($0).fontFamily`）を指定。GitHubでは単に無視される。 -->
 <pre><code style="font-family: ui-monospace, SFMono-Regular, 'SF Mono', Menlo, Consolas, 'Liberation Mono', monospace;">           pageWidth
 ├─────────────────────────────┤
-┏━━━━━━━━━━━━━━━┯━━━━━━━━━━━━━┳━━━━━━━━━━━━━┯━━━━━━━━━━━━━━━┓ ┬
-┃               │ top         ┃             │ top           ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃ foreEdge □□□□□□□□□■□        ┃ gutter □□□□□□□□□■□          ┃ │
-┠──────────□□□□□□□□□■□────────╂────────□□□□□□□□□■□──────────┨ │ pageHeight
-┃          □□□□□□□□□■□ gutter ┃        □□□□□□□□□■□ foreEdge ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃          □□□□□□□□□■□        ┃        □□□□□□□□□■□          ┃ │
-┃        bottom │             ┃      bottom │               ┃ │
-┗━━━━━━━━━━━━━━━┷━━━━━━━━━━━━━┻━━━━━━━━━━━━━┷━━━━━━━━━━━━━━━┛ ┴
+┌───────────────┬─────────────┬─────────────┬───────────────┐ ─┬─
+│               │ top         │             │ top           │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│ foreEdge □□□□□□□□□■□        │ gutter □□□□□□□□□■□          │  │
+├──────────□□□□□□□□□■□────────┼────────□□□□□□□□□■□──────────┤  │ pageHeight
+│          □□□□□□□□□■□ gutter │        □□□□□□□□□■□ foreEdge │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│          □□□□□□□□□■□        │        □□□□□□□□□■□          │  │
+│        bottom │             │      bottom │               │  │
+└───────────────┴─────────────┴─────────────┴───────────────┘ ─┴─
 
            columnCount
 ├───────────────────────────────┤
 │ letterCount                   │
 ├─────────────┤                 │
-□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ ┬
-□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ │
-□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ │
-□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ │ lineCount
-□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ │
-□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ │
-□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ ┴
+□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ ─┬─
+□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□  │
+□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□  │
+□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□  │ lineCount
+□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□  │
+□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□  │
+□□□□□□□□□■□□□□□   □□□□□□□□□■□□□□□ ─┴─
                ├─┤
             columnGap
 
- fontSize
-  ├────┤        ╌╌╌╌╌┬─ halfLeading
-┬ ┏━━━━┓     ┏━━━━┓ ─┼─
-│ ┃    ┃     ┃    ┃  │
-┴ ┗━━━━┛     ┗━━━━┛  │
-                ╌╌╌╌╌┼
-  ┏━━━━┓     ┏━━━━┓  │
-  ┃    ┃     ┃    ┃  │ lineHeight
-  ┗━━━━┛     ┗━━━━┛  │
-                ╌╌╌╌╌┼
-  ┏━━━━┓     ┏━━━━┓  │
-  ┃    ┃     ┃    ┃  │
-  ┗━━━━┛     ┗━━━━┛  │
-       ├─────┤  ╌╌╌╌╌┼
-    letterSpacing</code></pre>
+   fontSize
+    ├────┤        ─────┬─ halfLeading
+─┬─ ┌────┐     ┌────┐ ─┼─
+ │  │    │     │    │  │
+─┴─ └────┘     └────┘  │
+                  ─────┼─
+    ┌────┐     ┌────┐  │
+    │    │     │    │  │ lineHeight
+    └────┘     └────┘  │
+                  ─────┼─
+    ┌────┐     ┌────┐  │
+    │    │     │    │  │
+    └────┘     └────┘  │
+         ├─────┤  ─────┼─
+      letterSpacing</code></pre>
 
 <dl>
 <dt><code>writingMode === "horizontal" && direction === "ltr"</code></dt><dd><pre><code>  ---->
@@ -117,4 +117,4 @@ v ろり
 
 ## License
 
-This project is licensed under [GPL-3.0](LICENSE), except that everything in the `example` directory is released under CC0. Additionally, the typesetting sample includes excerpts from 宮沢賢治『ポラーノの広場』 (which is effectively in the public domain in Japan due to the expiration of its copyright protection).
+This project is licensed under [GPL-3.0](LICENSE), except that everything in the `example` directory is released under CC0. Additionally, the typesetting sample includes excerpts from 宮沢賢治『ポラーノの広場』 which is effectively in the public domain in Japan due to the expiration of its copyright protection.
