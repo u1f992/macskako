@@ -6,24 +6,27 @@ import { parseArgs } from "node:util";
 
 import JSON5 from "json5";
 
+import { defaultOptions, HELP } from "./constant.js";
+import { Config, Options } from "./type.js";
 import { VERSION } from "./version.js";
-import {
-  Config,
-  defaultOptions,
-  generateLayoutGridSVG,
-  Options,
-} from "./index.js";
+import { generateLayoutGridSVG } from "./index.js";
 
 type MaybeUnknown<T> = {
   [K in keyof T]: unknown;
 };
 
-const findClosest = (filename: string, dir = process.cwd()): string | null =>
-  fs.existsSync(path.join(dir, filename))
-    ? path.join(dir, filename)
-    : dir === path.dirname(dir) // root
-      ? null
-      : findClosest(filename, path.dirname(dir));
+const findClosestMatch = (
+  pattern: RegExp,
+  dir = process.cwd(),
+): string | null =>
+  ((match: string | undefined) =>
+    match
+      ? path.join(dir, match)
+      : dir === path.dirname(dir) // root
+        ? null
+        : findClosestMatch(pattern, path.dirname(dir)))(
+    fs.readdirSync(dir).find((file) => pattern.test(file)),
+  );
 
 const {
   version,
@@ -61,7 +64,7 @@ const {
     config: {
       type: "string",
       short: "c",
-      default: findClosest("macskako.config.jsonc") ?? undefined,
+      default: findClosestMatch(/^macskako\.config\.json[5c]?$/) ?? undefined,
     },
     /*****/
     "page-width": { type: "string" },
@@ -99,36 +102,7 @@ if (version) {
   process.exit(0);
 }
 if (help) {
-  console.log(
-    `Usage: macskako [options]
-
-Options:
-  -v, --version                               output the version number
-  -h, --help                                  display help for command
-  -l, --output-left <file>                    required: output path for left page
-  -r, --output-right <file>                   required: output path for right page
-  -c, --config <file>                         default: "macskako.config.jsonc" from the closest ancestor
-  --page-width <number>                       override \`config.page.width\`
-  --page-height <number>                      override \`config.page.height\`
-  --writing-mode "horizontal" | "vertical"    override \`config.writingMode\`
-  --direction "ltr" | "rtl"                   override \`config.direction\`
-  --font-size <number>                        override \`config.fontSize\`
-  --letter-spacing <number>                   override \`config.letterSpacing\`
-  --line-height <number>                      override \`config.lineHeight\`
-  --letter-count <number>                     override \`config.letterCount\`
-  --line-count <number>                       override \`config.lineCount\`
-  --column-count <number>                     override \`config.columnCount\`
-  --column-gap <number>                       override \`config.columnGap\`
-  --starting-point-top <number>               override \`config.startingPoint.top\`
-  --starting-point-bottom <number>            override \`config.startingPoint.bottom\`
-  --starting-point-fore-edge <number>         override \`config.startingPoint.foreEdge\`
-  --starting-point-gutter <number>            override \`config.startingPoint.gutter\`
-  --unit "" | "px" | "mm"                     default: "${defaultOptions.unit}"; override \`options.unit\`
-  --color <string>                            default: "${defaultOptions.color}"; override \`options.color\`
-  --opacity <number>                          default: ${defaultOptions.opacity}; override \`options.opacity\`
-  --stroke-width <number>                     default: ${defaultOptions.strokeWidth}; override \`options.strokeWidth\`
-  --trim-half-leading                         default: ${defaultOptions.trimHalfLeading}; override \`options.trimHalfLeading\``,
-  );
+  console.log(HELP);
   process.exit(0);
 }
 

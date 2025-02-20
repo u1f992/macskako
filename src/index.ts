@@ -1,4 +1,7 @@
-export type Unit = "" | "px" | "mm";
+import { defaultOptions } from "./constant.js";
+import { Unit, Config, Options } from "./type.js";
+
+export { defaultOptions, Unit, Config, Options };
 
 const svg = (
   width: number,
@@ -43,40 +46,6 @@ const toSVG = (rect: Rect, unit: Unit) =>
   `stroke="${rect.stroke}" ` +
   `stroke-width="${rect.strokeWidth}${unit}" ` +
   `stroke-opacity="${rect.strokeOpacity}" />`;
-
-export type Config = {
-  page: { width: number; height: number };
-  writingMode: "horizontal" | "vertical";
-  direction: "ltr" | "rtl";
-  fontSize: number;
-  letterSpacing: number;
-  lineHeight: number;
-  letterCount: number;
-  lineCount: number;
-  columnCount: number;
-  columnGap: number;
-  startingPoint:
-    | { top: number; foreEdge: number }
-    | { top: number; gutter: number }
-    | { bottom: number; foreEdge: number }
-    | { bottom: number; gutter: number };
-};
-
-export type Options = {
-  unit: Unit;
-  color: string;
-  opacity: number;
-  strokeWidth: number;
-  trimHalfLeading: boolean;
-};
-
-export const defaultOptions: Readonly<Options> = {
-  unit: "",
-  color: "#a6e2a6",
-  opacity: 1,
-  strokeWidth: 1,
-  trimHalfLeading: false,
-};
 
 export function generateLayoutGridSVG(
   config: Config,

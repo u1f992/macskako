@@ -1,5 +1,7 @@
 import fs from "node:fs";
-import { Config, Options, generateLayoutGridSVG } from "./index.js";
+
+import { Config, Options } from "./type.js";
+import { generateLayoutGridSVG } from "./index.js";
 
 const encoding = "utf-8";
 
